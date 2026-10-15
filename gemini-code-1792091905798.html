@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Muñoz | Bahía Blanca • 1934</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-cream: #FAF7F2;
+            --bg-card: #FFFFFF;
+            --coffee-dark: #231812;
+            --coffee-medium: #3D2B1F;
+            --coffee-light: #5C4332;
+            --gold-primary: #C5A059;
+            --gold-hover: #D4AF37;
+            --gold-bg: #F4EFE6;
+            --text-dark: #1C1917;
+            --text-muted: #665C54;
+            --border-light: #E8E2D5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        h1, h2, h3, h4, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background-color: var(--coffee-dark);
+            color: #D3C5B4;
+            padding: 8px 5%;
+            font-size: 0.78rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .top-bar-socials {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .top-bar-socials a {
+            color: #D3C5B4;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .top-bar-socials a:hover {
+            color: var(--gold-primary);
+        }
+
+        .icon-svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            display: inline-block;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            background-color: var(--bg-cream);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(35, 24, 18, 0.04);
+        }
+
+        .nav-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--coffee-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--coffee-dark);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .logo-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--coffee-dark);
+        }
+
+        .logo-text span {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            display: block;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--coffee-dark);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        .btn-cart-nav {
+            background-color: var(--coffee-dark);
+            color: #FFFFFF;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--gold-primary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-cart-nav:hover {
+            background-color: var(--coffee-medium);
+            color: var(--gold-primary);
+        }
+
+        .badge-count {
+            background-color: var(--gold-primary);
+            color: var(--coffee-dark);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(35, 24, 18, 0.78), rgba(35, 24, 18, 0.78)), 
+                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 110px 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background-color: rgba(35, 24, 18, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+            color: #E2D7C8;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background-color: var(--gold-primary);
+            color: var(--coffee-dark);
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-hero {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-hero:hover {
+            border-color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* BANNER HORARIOS */
+        .schedule-section {
+            background-color: var(--coffee-dark);
+            color: #FFFFFF;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .schedule-subtitle {
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .schedule-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+
+        .schedule-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .schedule-card {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            padding: 20px 30px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .schedule-card h4 {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .schedule-card p {
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            color: #FFFFFF;
+        }
+
+        /* CARTA ONLINE & FILTROS */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 25px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header span {
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .section-header h3 {
+            font-size: 2.6rem;
+            color: var(--coffee-dark);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 550px;
+            margin: 8px auto 0 auto;
+        }
+
+        /* FILTROS DE CATEGORÍA ESTILIZADOS */
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-light);
+            color: var(--coffee-dark);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--coffee-dark);
+            color: #FFFFFF;
+            border-color: var(--coffee-dark);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(35, 24, 18, 0.03);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(35, 24, 18, 0.08);
+        }
+
+        .menu-card-img {
+            height: 200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .menu-card:hover .menu-card-img img {
+            transform: scale(1.05);
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--coffee-dark);
+            color: var(--gold-primary);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .menu-card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-card-title {
+            font-size: 1.3rem;
+            color: var(--coffee-dark);
+            margin-bottom: 8px;
+        }
+
+        .menu-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .btn-add-item {
+            width: 100%;
+            background-color: var(--gold-bg);
+            color: var(--coffee-dark);
+            border: 1px solid var(--border-light);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+
+        .btn-add-item:hover {
+            background-color: var(--gold-primary);
+            color: #FFFFFF;
+            border-color: var(--gold-primary);
+        }
+
+        /* PANEL LATERAL DEL CARRITO (DRAWER) */
+        .cart-drawer-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-drawer-backdrop.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background-color: var(--bg-cream);
+            z-index: 1001;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cart-drawer.active {
+            right: 0;
+        }
+
+        .cart-header {
+            background-color: var(--coffee-dark);
+            color: #FFFFFF;
+            padding: 22px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+        }
+
+        .close-cart {
+            background: transparent;
+            border: none;
+            color: #D3C5B4;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close-cart:hover {
+            color: #FFFFFF;
+        }
+
+        .cart-items-container {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .cart-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--bg-card);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            margin-bottom: 12px;
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--coffee-dark);
+            margin-bottom: 2px;
+        }
+
+        .cart-item-price {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .qty-btn {
+            background-color: var(--gold-bg);
+            border: 1px solid var(--border-light);
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background-color: var(--gold-primary);
+            color: #FFFFFF;
+        }
+
+        .cart-item-qty {
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 15px;
+            text-align: center;
+        }
+
+        .cart-item-remove {
+            background: transparent;
+            border: none;
+            color: #C53030;
+            font-size: 0.75rem;
+            cursor: pointer;
+            margin-left: auto;
+            text-decoration: underline;
+        }
+
+        .cart-footer {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-top: 1px solid var(--border-light);
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.03);
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--coffee-dark);
+        }
+
+        .cart-total-amount {
+            color: var(--coffee-medium);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+        }
+
+        /* FORMULARIO DE RESERVAS */
+        .reservation-section {
+            background-color: var(--bg-cream);
+            padding: 60px 20px;
+        }
+
+        .reservation-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(35, 24, 18, 0.05);
+            text-align: center;
+        }
+
+        .reservation-box span {
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .reservation-box h3 {
+            font-size: 2.2rem;
+            color: var(--coffee-dark);
+            margin-bottom: 8px;
+        }
+
+        .reservation-box p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--coffee-dark);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 0.88rem;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .btn-reserve-submit {
+            background-color: var(--coffee-dark);
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            width: 100%;
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-reserve-submit:hover {
+            background-color: var(--coffee-medium);
+            color: #FFFFFF;
+        }
+
+        /* SECCIÓN FINAL FRENTE HISTÓRICO */
+        .about-section {
+            background-color: #FFFFFF;
+            padding: 80px 20px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .about-img-wrapper {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .about-img-wrapper img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 12px 35px rgba(35, 24, 18, 0.12);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .about-text h3 {
+            font-size: 2.8rem;
+            color: var(--coffee-dark);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .about-location-tag {
+            font-size: 0.85rem;
+            color: var(--coffee-light);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .btn-carta-clean {
+            display: inline-block;
+            border: 1.5px solid var(--coffee-dark);
+            color: var(--coffee-dark);
+            padding: 12px 35px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn-carta-clean:hover {
+            background-color: var(--coffee-dark);
+            color: #FFFFFF;
+        }
+
+        /* FOOTER CON REDES SOCIALES */
+        footer {
+            background-color: var(--coffee-dark);
+            color: #D3C5B4;
+            padding: 50px 20px 25px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold-primary);
+            font-size: 1rem;
+            margin-bottom: 18px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .footer-social-list {
+            list-style: none;
+        }
+
+        .footer-social-list li {
+            margin-bottom: 12px;
+        }
+
+        .footer-social-list a {
+            color: #D3C5B4;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-social-list a:hover {
+            color: var(--gold-primary);
+        }
+
+        .social-icon-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(197, 160, 89, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+        }
+
+        .copyright-bar {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+            font-size: 0.75rem;
+            color: #8C7B6B;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { flex-direction: column; gap: 8px; text-align: center; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .hero h2 { font-size: 2.2rem; }
+            .about-container { flex-direction: column; text-align: center; }
+            .form-row { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR BARRA DE CONTACTO -->
+    <div class="top-bar">
+        <div>📍 O'Higgins 45, Bahía Blanca • Cafetería & Resto desde 1934</div>
+        <div class="top-bar-socials">
+            <a href="https://instagram.com/cafe.munozbb" target="_blank">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                @cafe.munozbb
+            </a>
+            <a href="https://wa.me/5492914222429" target="_blank">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                +54 9 291 422-2429
+            </a>
+        </div>
+    </div>
+
+    <!-- HEADER DE NAVEGACIÓN -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">M</div>
+                <div class="logo-text">
+                    <h1>CAFÉ MUÑOZ</h1>
+                    <span>Bahía Blanca • 1934</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#carta">Menú & Pedidos</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
+                    <li><a href="#reservas">Reservar Mesa</a></li>
+                    <li><a href="#nosotros">Nuestra Carta</a></li>
+                    <li>
+                        <button onclick="toggleCartDrawer()" class="btn-cart-nav">
+                            Tu Pedido
+                            <span class="badge-count" id="navCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-badge">TRADICIÓN & EXCELENCIA • O'HIGGINS 45</div>
+        <h2>El sabor clásico de Bahía Blanca, directo a tu mesa.</h2>
+        <p>Elegí tus platos preferidos de nuestra carta, armá tu pedido e informanos al instante por WhatsApp, o reservá tu mesa para disfrutar del mejor ambiente.</p>
+        <div class="hero-buttons">
+            <a href="#carta" class="btn-gold">Ver Menú & Pedir</a>
+            <a href="https://wa.me/5492914222429" target="_blank" class="btn-outline-hero">WhatsApp Directo</a>
+        </div>
+    </section>
+
+    <!-- BANNER HORARIOS -->
+    <section class="schedule-section" id="horarios">
+        <div class="schedule-subtitle">TE ESPERAMOS EN O'HIGGINS 45</div>
+        <h3 class="schedule-title">Horarios de Atención</h3>
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <h4>Lunes a Viernes</h4>
+                <p>07:00 – 00:00 hs</p>
+            </div>
+            <div class="schedule-card">
+                <h4>Sábados</h4>
+                <p>08:30 – 00:00 hs</p>
+            </div>
+            <div class="schedule-card">
+                <h4>Domingos</h4>
+                <p>16:30 – 00:00 hs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARTA ONLINE & FILTROS -->
+    <section class="container" id="carta">
+        <div class="section-header">
+            <span>CARTA ONLINE</span>
+            <h3>Explorá Nuestra Carta</h3>
+            <p>Elegí tus platos o bebidas, sumalas al carrito y mandanos la orden directa a nuestro WhatsApp</p>
+        </div>
+
+        <!-- FILTROS POR CATEGORÍA -->
+        <div class="category-filters">
+            <button class="filter-btn active" onclick="filterCategory('all', event)">Todos</button>
+            <button class="filter-btn" onclick="filterCategory('cafeteria', event)">☕ Cafetería & Dulces</button>
+            <button class="filter-btn" onclick="filterCategory('desayunos', event)">🥐 Desayunos & Meriendas</button>
+            <button class="filter-btn" onclick="filterCategory('almuerzos', event)">🥗 Almuerzos & Platos Caseros</button>
+            <button class="filter-btn" onclick="filterCategory('bebidas', event)">🧃 Bebidas & Licuados</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- ITEM 1 -->
+            <div class="menu-card" data-category="cafeteria">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Café Espresso Doble">
+                    <span class="price-badge">$2.200</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Café Espresso Doble</h4>
+                    <p class="menu-card-desc">Granos seleccionados tostados artesanalmente. Sabor intenso y cuerpo cremoso.</p>
+                    <button class="btn-add-item" onclick="addToCart('Café Espresso Doble', 2200, 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="menu-card" data-category="cafeteria">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=600&auto=format&fit=crop" alt="Capuchino Muñoz">
+                    <span class="price-badge">$3.100</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Capuchino Muñoz Tradicional</h4>
+                    <p class="menu-card-desc">Espresso, leche vaporizada, abundante espuma, canela y ralladura de chocolate.</p>
+                    <button class="btn-add-item" onclick="addToCart('Capuchino Muñoz Tradicional', 3100, 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="menu-card" data-category="desayunos">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop" alt="Media Luna de Manteca">
+                    <span class="price-badge">$2.400</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Media Luna de Manteca (x3)</h4>
+                    <p class="menu-card-desc">Clásicas medialunas artesanales súper esponjosas y doradas.</p>
+                    <button class="btn-add-item" onclick="addToCart('Media Luna de Manteca (x3)', 2400, 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 4 -->
+            <div class="menu-card" data-category="desayunos">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop" alt="Tostado Carlitos">
+                    <span class="price-badge">$5.200</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Tostado Carlitos Mixto</h4>
+                    <p class="menu-card-desc">Pan de miga dorado a la manteca con abundante jamón cocido y queso mozzarella fundido.</p>
+                    <button class="btn-add-item" onclick="addToCart('Tostado Carlitos Mixto', 5200, 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 5 -->
+            <div class="menu-card" data-category="desayunos">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=600&auto=format&fit=crop" alt="Avocado Toast">
+                    <span class="price-badge">$5.800</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Avocado Toast con Huevo</h4>
+                    <p class="menu-card-desc">Pan de masa madre, palta fresca pisada, huevo a baja temperatura y semillas de sésamo.</p>
+                    <button class="btn-add-item" onclick="addToCart('Avocado Toast con Huevo', 5800, 'https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 6 -->
+            <div class="menu-card" data-category="almuerzos">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=600&auto=format&fit=crop" alt="Milanesa Napolitana">
+                    <span class="price-badge">$9.800</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Milanesa de Lomo a la Neolitana</h4>
+                    <p class="menu-card-desc">Milanesa casera con salsa fileto, jamón, queso gratinado y papas fritas crujientes.</p>
+                    <button class="btn-add-item" onclick="addToCart('Milanesa de Lomo a la Neolitana', 9800, 'https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 7 -->
+            <div class="menu-card" data-category="cafeteria">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=600&auto=format&fit=crop" alt="Lemon Pie">
+                    <span class="price-badge">$4.100</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Torta Lemon Pie Artesanal</h4>
+                    <p class="menu-card-desc">Masa sablée crocante, crema suave de limón natural y merengue italiano dorado.</p>
+                    <button class="btn-add-item" onclick="addToCart('Torta Lemon Pie Artesanal', 4100, 'https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 8 -->
+            <div class="menu-card" data-category="bebidas">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=600&auto=format&fit=crop" alt="Licuado Frutal">
+                    <span class="price-badge">$3.600</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Licuado Frutal de Estación</h4>
+                    <p class="menu-card-desc">Preparado al momento con fruta fresca (Banana, Frutilla o Durazno) en agua o leche.</p>
+                    <button class="btn-add-item" onclick="addToCart('Licuado Frutal de Estación', 3600, 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+
+            <!-- ITEM 9 -->
+            <div class="menu-card" data-category="bebidas">
+                <div class="menu-card-img">
+                    <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600&auto=format&fit=crop" alt="Exprimido de Naranja">
+                    <span class="price-badge">$3.200</span>
+                </div>
+                <div class="menu-card-body">
+                    <h4 class="menu-card-title">Exprimido de Naranja Natural</h4>
+                    <p class="menu-card-desc">100% naranjas seleccionadas exprimidas en el instante.</p>
+                    <button class="btn-add-item" onclick="addToCart('Exprimido de Naranja Natural', 3200, 'https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600&auto=format&fit=crop')">+ Agregar al Pedido</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE RESERVAS -->
+    <section class="reservation-section" id="reservas">
+        <div class="reservation-box">
+            <span>EXPERIENCIA PRESENCIAL</span>
+            <h3>Reservar una Mesa</h3>
+            <p>Asegurá tu lugar en Café Muñoz de forma directa y rápida.</p>
+
+            <form onsubmit="handleReserva(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre Completo *</label>
+                        <input type="text" id="resNombre" class="form-input" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono de Contacto *</label>
+                        <input type="tel" id="resTel" class="form-input" placeholder="Ej: 291 422-2429" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Fecha *</label>
+                        <input type="date" id="resFecha" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora *</label>
+                        <input type="time" id="resHora" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Comensales *</label>
+                        <select id="resPersonas" class="form-input" required>
+                            <option value="1">1 Persona</option>
+                            <option value="2" selected>2 Personas</option>
+                            <option value="4">4 Personas</option>
+                            <option value="6">6+ Personas</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-reserve-submit">Confirmar Reserva por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FINAL FRENTE HISTÓRICO -->
+    <section class="about-section" id="nosotros">
+        <div class="about-container">
+            <div class="about-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop" alt="Fachada Café Muñoz">
+            </div>
+            <div class="about-text">
+                <h3>CONOCÉ LA CARTA DE CAFÉ MUÑOZ</h3>
+                <p>Explorá nuestra amplia carta de menús en Café Muñoz, Bahía Blanca. Desde desayunos energizantes hasta almuerzos caseros y meriendas deliciosas, ofrecemos opciones para todos los gustos. ¡Ven y disfrutá de una experiencia culinaria inigualable!</p>
+                <div class="about-location-tag">Cafetería y resto. O'Higgins 45, Bahía Blanca.</div>
+                <a href="#carta" class="btn-carta-clean">CARTA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL LATERAL DE CARRITO (DRAWER) -->
+    <div class="cart-drawer-backdrop" id="cartBackdrop" onclick="toggleCartDrawer()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <button class="close-cart" onclick="toggleCartDrawer()">&times;</button>
+        </div>
+        <div class="cart-items-container" id="cartItemsContainer">
+            <!-- Items dinámicos -->
+            <p style="text-align: center; color: var(--text-muted); margin-top: 40px; font-size: 0.9rem;">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span class="cart-total-amount" id="cartTotalAmount">$0</span>
+            </div>
+            <button class="btn-gold" style="width: 100%; padding: 14px; font-size: 0.9rem;" onclick="sendOrderToWhatsApp()">Ordenar por WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- FOOTER CON REDES SOCIALES -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col" style="max-width: 320px;">
+                <h4>CAFÉ MUÑOZ</h4>
+                <p style="font-size: 0.82rem; line-height: 1.6; color: #A89887;">Tradición, calidez y excelencia en el centro de Bahía Blanca. Un punto de encuentro histórico desde 1934.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Horarios de Atención</h4>
+                <p style="font-size: 0.82rem; color: #A89887; line-height: 1.8;">
+                    <strong>Lun - Vie:</strong> 07:00 – 00:00 hs<br>
+                    <strong>Sábados:</strong> 08:30 – 00:00 hs<br>
+                    <strong>Domingos:</strong> 16:30 – 00:00 hs
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociales</h4>
+                <ul class="footer-social-list">
+                    <li>
+                        <a href="https://instagram.com/cafe.munozbb" target="_blank">
+                            <div class="social-icon-box">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </div>
+                            @cafe.munozbb
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/tag/cafe.munozbb" target="_blank">
+                            <div class="social-icon-box">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.26 1.55-1.21 2.53.03.88.52 1.72 1.28 2.18.82.49 1.87.53 2.72.11.83-.41 1.39-1.28 1.48-2.2.03-3.23.01-6.46.01-9.69-.01-1.52.01-3.04-.01-4.56z"/></svg>
+                            </div>
+                            #cafe.munozbb
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/5492914222429" target="_blank">
+                            <div class="social-icon-box">
+                                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            </div>
+                            +54 9 291 422-2429
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            © Café Muñoz • O'Higgins 45, Bahía Blanca. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        const PHONE = "5492914222429";
+
+        function filterCategory(cat, event) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.menu-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartBackdrop');
+            drawer.classList.toggle('active');
+            backdrop.classList.toggle('active');
+        }
+
+        function addToCart(name, price, img) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty++;
+            } else {
+                cart.push({ name, price, img, qty: 1 });
+            }
+            updateCartUI();
+            toggleCartDrawer(); // Abre automáticamente el panel al agregar un plato
+        }
+
+        function changeQty(name, delta) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(i => i.name !== name);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('navCount').textContent = totalQty;
+            document.getElementById('cartTotalAmount').textContent = `$${totalPrice.toLocaleString('es-AR')}`;
+
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: var(--text-muted); margin-top: 40px; font-size: 0.9rem;">Tu carrito está vacío</p>`;
+                return;
+            }
+
+            let html = '';
+            cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                html += `
+                    <div class="cart-item-row">
+                        <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toLocaleString('es-AR')} c/u</div>
+                            <div class="cart-item-controls">
+                                <button class="qty-btn" onclick="changeQty('${item.name}', -1)">-</button>
+                                <span class="cart-item-qty">${item.qty}</span>
+                                <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
+                                <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function sendOrderToWhatsApp() {
+            if (cart.length === 0) return;
+
+            let text = "¡Hola Café Muñoz! Quisiera realizar el siguiente pedido desde la web:\n\n";
+            let total = 0;
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                text += `• ${item.qty}x ${item.name} ($${item.price.toLocaleString('es-AR')} c/u) = $${subtotal.toLocaleString('es-AR')}\n`;
+            });
+
+            text += `\n*Total del Pedido: $${total.toLocaleString('es-AR')}*`;
+            text += "\n\n¿Me confirman el tiempo estimado y el medio de pago? ¡Muchas gracias!";
+
+            window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function handleReserva(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('resNombre').value;
+            const tel = document.getElementById('resTel').value;
+            const fecha = document.getElementById('resFecha').value;
+            const hora = document.getElementById('resHora').value;
+            const personas = document.getElementById('resPersonas').value;
+
+            let text = `¡Hola Café Muñoz! Quisiera reservar una mesa:\n\n`;
+            text += `• *Nombre:* ${nombre}\n`;
+            text += `• *Teléfono:* ${tel}\n`;
+            text += `• *Fecha:* ${fecha}\n`;
+            text += `• *Hora:* ${hora}\n`;
+            text += `• *Personas:* ${personas}\n\n`;
+            text += `¿Tienen disponibilidad? ¡Muchas gracias!`;
+
+            window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
